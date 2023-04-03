@@ -218,9 +218,10 @@ const Home = () => {
 
     // let folderAtPath = fetch(BASEURL + path);
     let folderAtPath = { ...musicFoldersTemp[0] }; // temporary hard coded JSON
+    let newNumFolders = musicFolders.length + 1;
     setMusicFolders((prev) => {
-      folderAtPath.id = musicFolders.length + 1;
-      folderAtPath.name = `Untitled Folder ${folderAtPath.id}`;
+      folderAtPath.id = newNumFolders;
+      folderAtPath.name = `Untitled Folder ${newNumFolders}`;
       return [...prev, folderAtPath];
     });
   }
