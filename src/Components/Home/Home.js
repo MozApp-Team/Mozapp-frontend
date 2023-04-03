@@ -200,8 +200,6 @@ let musicFoldersTemp = [
   }
 ]
 
-let folderCount = 0;
-
 const Home = () => {
   const [isAdding, setIsAdding] = useState(false)
   const [musicFolders, setMusicFolders] = useState([]);
@@ -220,10 +218,9 @@ const Home = () => {
 
     // let folderAtPath = fetch(BASEURL + path);
     let folderAtPath = { ...musicFoldersTemp[0] }; // temporary hard coded JSON
-    folderCount++;
     setMusicFolders((prev) => {
       folderAtPath.name = `Untitled Folder ${folderAtPath.id}`;
-      folderAtPath.id = folderCount;
+      folderAtPath.id = musicFolders.length + 1;
       return [...prev, folderAtPath];
     });
   }
