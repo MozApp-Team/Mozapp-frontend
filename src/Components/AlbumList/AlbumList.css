@@ -1,5 +1,6 @@
 .AlbumList {
     display: grid;
-    gap: 1em;
+    gap: 2em;
     grid-template-columns: repeat(5, minmax(100px, 1fr));
+    margin: 1em;
 }

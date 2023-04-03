@@ -10,7 +10,7 @@ let musicFoldersTemp = [
       {
         "album_name": "Symphony No. 5",
         "artist": "Beethoven",
-        "album_art_path": "/path/to/album/art/symphony5.jpg",
+        "album_art_path": "https://cdn.discordapp.com/attachments/1014741383078227968/1092259725808246876/ab67616d0000b27337c26a804db4202a6d4a4a4d.jpg",
         "id": 1,
         "songs": [
           {
@@ -38,7 +38,7 @@ let musicFoldersTemp = [
       {
         "album_name": "The Four Seasons",
         "artist": "Vivaldi",
-        "album_art_path": "/path/to/album/art/four_seasons.jpg",
+        "album_art_path": "https://cdn.discordapp.com/attachments/1014741383078227968/1092259915218825316/download.jpg",
         "id": 2,
         "songs": [
           {
@@ -66,8 +66,102 @@ let musicFoldersTemp = [
       {
         "album_name": "Brandenburg Concertos",
         "artist": "Bach",
-        "album_art_path": "/path/to/album/art/brandenburg_concertos.jpg",
+        "album_art_path": "https://cdn.discordapp.com/attachments/1014741383078227968/1092260080445042739/ab67616d0000b273631955b80bc6512c34d5b8a7.jpg",
         "id": 3,
+        "songs": [
+          {
+            "song_name": "No. 1",
+            "artist": "Bach",
+            "song_path": "/path/to/songs/brandenburg_concertos/no_1.mp3"
+          },
+          {
+            "song_name": "No. 2",
+            "artist": "Bach",
+            "song_path": "/path/to/songs/brandenburg_concertos/no_2.mp3"
+          },
+          {
+            "song_name": "No. 3",
+            "artist": "Bach",
+            "song_path": "/path/to/songs/brandenburg_concertos/no_3.mp3"
+          },
+          {
+            "song_name": "No. 4",
+            "artist": "Bach",
+            "song_path": "/path/to/songs/brandenburg_concertos/no_4.mp3"
+          },
+          {
+            "song_name": "No. 5",
+            "artist": "Bach",
+            "song_path": "/path/to/songs/brandenburg_concertos/no_5.mp3"
+          },
+          {
+            "song_name": "No. 6",
+            "artist": "Bach",
+            "song_path": "/path/to/songs/brandenburg_concert"
+          }
+        ]
+      },
+      {
+        "album_name": "Symphony No. 5",
+        "artist": "Beethoven",
+        "album_art_path": "https://cdn.discordapp.com/attachments/1014741383078227968/1092259725808246876/ab67616d0000b27337c26a804db4202a6d4a4a4d.jpg",
+        "id": 4,
+        "songs": [
+          {
+            "song_name": "Allegro con brio",
+            "artist": "Beethoven",
+            "song_path": "/path/to/songs/symphony5/allegro_con_brio.mp3"
+          },
+          {
+            "song_name": "Andante con moto",
+            "artist": "Beethoven",
+            "song_path": "/path/to/songs/symphony5/andante_con_moto.mp3"
+          },
+          {
+            "song_name": "Scherzo",
+            "artist": "Beethoven",
+            "song_path": "/path/to/songs/symphony5/scherzo.mp3"
+          },
+          {
+            "song_name": "Allegro",
+            "artist": "Beethoven",
+            "song_path": "/path/to/songs/symphony5/allegro.mp3"
+          }
+        ]
+      },
+      {
+        "album_name": "The Four Seasons",
+        "artist": "Vivaldi",
+        "album_art_path": "https://cdn.discordapp.com/attachments/1014741383078227968/1092259915218825316/download.jpg",
+        "id": 5,
+        "songs": [
+          {
+            "song_name": "Spring",
+            "artist": "Vivaldi",
+            "song_path": "/path/to/songs/four_seasons/spring.mp3"
+          },
+          {
+            "song_name": "Summer",
+            "artist": "Vivaldi",
+            "song_path": "/path/to/songs/four_seasons/summer.mp3"
+          },
+          {
+            "song_name": "Autumn",
+            "artist": "Vivaldi",
+            "song_path": "/path/to/songs/four_seasons/autumn.mp3"
+          },
+          {
+            "song_name": "Winter",
+            "artist": "Vivaldi",
+            "song_path": "/path/to/songs/four_seasons/winter.mp3"
+          }
+        ]
+      },
+      {
+        "album_name": "Brandenburg Concertos",
+        "artist": "Bach",
+        "album_art_path": "https://cdn.discordapp.com/attachments/1014741383078227968/1092260080445042739/ab67616d0000b273631955b80bc6512c34d5b8a7.jpg",
+        "id": 6,
         "songs": [
           {
             "song_name": "No. 1",
@@ -105,7 +199,7 @@ let musicFoldersTemp = [
   }
 ]
 
-let playlistCount = 0;
+let folderCount = 0;
 
 const Home = () => {
   const [isAdding, setIsAdding] = useState(false)
@@ -122,10 +216,10 @@ const Home = () => {
     
     // let folderAtPath = fetch(BASEURL + path);
     let folderAtPath = {...musicFoldersTemp[0]}; // temporary hard coded JSON
-    playlistCount++;
+    folderCount++;
     setMusicFolders((prev) => {
       folderAtPath.name = `Untitled Folder ${folderAtPath.id}`;
-      folderAtPath.id = playlistCount;
+      folderAtPath.id = folderCount;
       return [...prev, folderAtPath];
     });
   }
@@ -144,17 +238,19 @@ const Home = () => {
 
       <div className="sideBar">
         <div className="functions">
-          <button onClick={onAdd}>Add Playlist</button>
+          <button onClick={onAdd}>Add Folder</button>
         </div>
         <div className="musicFolders">
           {musicFolders.map((folder) => {
-            return <Link key={folder.id} style={{textDecoration: "none", color: "white"}}to={`/playlist/${folder.id}`}><p onClick={() => selectFolder(folder)}>{folder.name}</p></Link>
+            return <Link key={folder.id} style={{textDecoration: "none", color: "white"}}to={`/folder/${folder.id}`}><p onClick={() => selectFolder(folder)}>{folder.name}</p></Link>
           })}
         </div>
       </div>
+
       <div className="head">
         <Link to="/signup"><button>Sign In</button></Link>
       </div>
+
       <div className="main">
         { selectedFolder && <AlbumList albums={selectedFolder ? selectedFolder.albums : []}/>}
 
@@ -162,6 +258,7 @@ const Home = () => {
           <Route path="/playlist/:id" element={<AlbumList albums={selectedFolder ? selectedFolder.albums : []}/>}/>
         </Routes> */}
       </div>
+      
       <div className="buttons">
 
       </div>
