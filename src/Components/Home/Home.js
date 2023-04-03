@@ -1,6 +1,7 @@
 import "./Home.css";
 import AddFolder from "./AddFolder/AddFolder";
 import AlbumList from "../AlbumList/AlbumList";
+import SongList from "../SongList/SongList";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 
@@ -205,6 +206,7 @@ const Home = () => {
   const [isAdding, setIsAdding] = useState(false)
   const [musicFolders, setMusicFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState(null);
+  const [selectedAlbum, setSelectedAlbum] = useState(null);
   // const [isSignedIn, setIsSignedIn] = useState(false);
 
   let params = useParams();
@@ -215,9 +217,9 @@ const Home = () => {
 
   const addFolder = (path) => {
     setIsAdding(false);
-    
+
     // let folderAtPath = fetch(BASEURL + path);
-    let folderAtPath = {...musicFoldersTemp[0]}; // temporary hard coded JSON
+    let folderAtPath = { ...musicFoldersTemp[0] }; // temporary hard coded JSON
     folderCount++;
     setMusicFolders((prev) => {
       folderAtPath.name = `Untitled Folder ${folderAtPath.id}`;
@@ -230,6 +232,20 @@ const Home = () => {
     setSelectedFolder(folder);
   }
 
+  const getFolderLabelClass = (folder) => {
+    if (selectedFolder && folder.id === selectedFolder.id) {
+      return "active";
+    } else {
+      return "";
+    }
+  }
+
+  const selectAlbum = (id) => {
+    setSelectedAlbum(selectedFolder.albums.find((album) => {
+      return album.id === id;
+    }))
+  }
+
   return (
     <div className="Home">
       {isAdding &&
@@ -238,26 +254,35 @@ const Home = () => {
           <div className="overlay" />
         </div>}
 
+      <div className="head">
+        <Link to="/signup"><button>Sign In</button></Link>
+      </div>
+
       <div className="sideBar">
         <div className="functions">
           <button onClick={onAdd}>Add Folder</button>
         </div>
         <div className="musicFolders">
           {musicFolders.map((folder) => {
-            return <Link key={folder.id} style={{textDecoration: "none", color: "white"}}to={`/folder/${folder.id}`}><p onClick={() => selectFolder(folder)}>{folder.name}</p></Link>
+            return <Link key={folder.id} style={{ textDecoration: "none", color: "#969696" }} to={`/folder/${folder.id}`}>
+              <p className={getFolderLabelClass(folder)} onClick={() => selectFolder(folder)}>{folder.name}</p>
+            </Link>
           })}
         </div>
       </div>
 
-      <div className="head">
-        <Link to="/signup"><button>Sign In</button></Link>
+      <div className="main">
+        {(params.view === "folder" && !params.albumId) &&
+          <AlbumList albums={selectedFolder ? selectedFolder.albums : []} onSelect={selectAlbum} />}
+
+        {(params.albumId) &&
+          <div>
+            <h1>{selectedAlbum.album_name}</h1>
+            <SongList songs={selectedAlbum.songs} />
+          </div>
+        }
       </div>
 
-      <div className="main">
-        { (params.view === "folder") && <AlbumList albums={selectedFolder ? selectedFolder.albums : []}/>}
-        {/* { (params.view === "folder") && <AlbumList albums={selectedFolder ? selectedFolder.albums : []}/>} */}
-      </div>
-      
       <div className="buttons">
 
       </div>

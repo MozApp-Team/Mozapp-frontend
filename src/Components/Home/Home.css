@@ -18,6 +18,25 @@
     background-color: black;
 }
 
+.Home > .sideBar p {
+    margin: 1rem;
+}
+
+.Home > .sideBar p:hover {
+    color:rgb(255, 255, 255);
+}
+
+.active {
+    color: white;
+}
+
+
+
+.musicFolders {
+    margin: 0 1em; 
+    border-top: 1px solid rgb(150, 150, 150);
+}
+
 .Home > .head {
     display: flex;
     grid-area: head;
@@ -78,14 +97,4 @@
     left: 0;
     right: 0;
     bottom: 0;
-}
-
-.musicFolders {
-    margin: 0 1em; 
-    border-top: 1px solid rgb(150, 150, 150);
-
-}
-
-.musicFolders > p:hover {
-    cursor: pointer;
 }
