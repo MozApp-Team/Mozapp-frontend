@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "../Home/Home";
 import SignUp from "../SignUp/SignUp";
 import Login from "../Login/Login";
@@ -7,7 +7,6 @@ import Login from "../Login/Login";
 function App() {
   return (
     <div className="App">
-      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:view/:id" element={<Home />} />
@@ -15,7 +14,6 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
         </Routes>
-      </Router>
     </div>
   );
 }
