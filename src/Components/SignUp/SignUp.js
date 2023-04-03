@@ -44,7 +44,9 @@ const SignUpPage = (props) => {
   return (
     <div className="SignUp">
       <div className="appTitle">
-        <img className="logo" src={logo} alt="MozApp Logo"/>
+        <Link to="/">
+          <img className="logo" src={logo} alt="MozApp Logo"/>
+        </Link>
         {/* <h2>MozApp</h2> */}
       </div>
       <h1>Sign up for free to start listening.</h1>

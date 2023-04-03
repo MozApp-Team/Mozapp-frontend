@@ -1,7 +1,7 @@
 import "./Home.css";
 import AddFolder from "./AddFolder/AddFolder";
 import AlbumList from "../AlbumList/AlbumList";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 
 let musicFoldersTemp = [
@@ -207,6 +207,8 @@ const Home = () => {
   const [selectedFolder, setSelectedFolder] = useState(null);
   // const [isSignedIn, setIsSignedIn] = useState(false);
 
+  let params = useParams();
+
   const onAdd = () => {
     setIsAdding(true);
   }
@@ -252,11 +254,8 @@ const Home = () => {
       </div>
 
       <div className="main">
-        { selectedFolder && <AlbumList albums={selectedFolder ? selectedFolder.albums : []}/>}
-
-        {/* <Routes>
-          <Route path="/playlist/:id" element={<AlbumList albums={selectedFolder ? selectedFolder.albums : []}/>}/>
-        </Routes> */}
+        { (params.view === "folder") && <AlbumList albums={selectedFolder ? selectedFolder.albums : []}/>}
+        {/* { (params.view === "folder") && <AlbumList albums={selectedFolder ? selectedFolder.albums : []}/>} */}
       </div>
       
       <div className="buttons">

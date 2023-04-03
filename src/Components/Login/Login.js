@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Login.css";
 import logo from "./logo_2.png";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -40,7 +40,9 @@ const Login = (props) => {
   return (
     <div className="Login">
       <div className="appTitle">
-        <img className="logo" src={logo} alt="MozApp Logo"/>
+        <Link to="/">
+          <img className="logo" src={logo} alt="MozApp Logo"/>
+        </Link>
         {/* <h2>MozApp</h2> */}
       </div>
 
