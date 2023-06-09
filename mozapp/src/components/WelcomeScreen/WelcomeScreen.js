@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import AuthorizationCode from './AuthorizationCode';
+import AuthorizationCode from '../WelcomeScreenCode/AuthorizationCode';
+import './WelcomeScreen.css';
 
 const WelcomeScreen = ({ setAuthorizationCode }) => {
   const [songDirectory, setSongDirectory] = useState('');
@@ -30,7 +31,7 @@ const WelcomeScreen = ({ setAuthorizationCode }) => {
   };
 
   return (
-    <div>
+    <div class="container">
       <h1>Welcome to MozApp!</h1>
       <form onSubmit={handleFormSubmit}>
         <label>

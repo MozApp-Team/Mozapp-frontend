@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import WelcomeScreen from './WelcomeScreen';
-import SongList from './SongList';
+import WelcomeScreen from '../components/WelcomeScreen/WelcomeScreen';
+import SongList from '../components/DisplaySongs/SongList';
 import axios from 'axios';
 
 const App = () => {

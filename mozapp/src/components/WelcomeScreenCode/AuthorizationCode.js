@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './AuthorizationCode.css';
 
 const AuthorizationCode = ({ onSubmit }) => {
   const [code, setCode] = useState('');
