@@ -1,55 +1,63 @@
+/* Set font family and background color for the body */
 body {
-font-family: Arial, sans-serif;
-background-color: #f2f2f2;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-}
-
-.container {
-text-align: center;
-padding: 20px;
-border: 1px solid #ccc;
-background-color: #fff;
-border-radius: 5px;
-}
-
-.container h1 {
-color: #333;
-font-size: 24px;
-margin-bottom: 20px;
-}
-
-.container label {
-display: block;
-margin-bottom: 10px;
-color: #666;
-}
-
-.container input[type="text"] {
-width: 250px;
-padding: 8px;
-border: 1px solid #ccc;
-border-radius: 5px;
-font-size: 14px;
-}
-
-.container button[type="submit"] {
-background-color: #4CAF50;
-color: white;
-border: none;
-padding: 10px 20px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 14px;
-border-radius: 5px;
-cursor: pointer;
-margin-top: 10px;
-}
-
-.container a {
-color: #0066cc;
-text-decoration: none;
-}
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Style for the container element */
+  .container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  
+  /* Style for the heading inside the container */
+  .container h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for labels inside the container */
+  .container label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  /* Style for text input fields inside the container */
+  .container input[type="text"] {
+    width: 250px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Style for submit button inside the container */
+  .container button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Style for anchor links inside the container */
+  .container a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  

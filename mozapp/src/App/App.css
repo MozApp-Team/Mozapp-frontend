@@ -1,38 +1,45 @@
+/* Center-align the text inside the .App element */
 .App {
   text-align: center;
 }
 
+/* Style for the .App-logo element */
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 40vmin; /* Set the height of the .App-logo element to 40% of the viewport height */
+  pointer-events: none; /* Disable pointer events on the .App-logo element */
 }
 
+/* Media query to apply styles when the user does not prefer reduced motion */
 @media (prefers-reduced-motion: no-preference) {
+  /* Animation styles for the .App-logo element */
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear; /* Apply an infinite spinning animation to the .App-logo element with a duration of 20 seconds and a linear timing function */
   }
 }
 
+/* Styles for the .App-header element */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #282c34; /* Set the background color of the .App-header element to a dark gray */
+  min-height: 100vh; /* Set the minimum height of the .App-header element to 100% of the viewport height */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Set the flex direction to column */
+  align-items: center; /* Center align items horizontally */
+  justify-content: center; /* Center align items vertically */
+  font-size: calc(10px + 2vmin); /* Set the font size of the .App-header element to a calculated value based on the viewport */
+  color: white; /* Set the text color of the .App-header element to white */
 }
 
+/* Styles for the .App-link element */
 .App-link {
-  color: #61dafb;
+  color: #61dafb; /* Set the text color of the .App-link element to a light blue */
 }
 
+/* Keyframes for the spinning animation */
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Start the animation with no rotation */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* End the animation with a full rotation (360 degrees) */
   }
 }

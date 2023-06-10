@@ -1,57 +1,66 @@
+/* Styles for the container of the song list */
 .song-list-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .song-table {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 20px;
-  }
-  
-  .song-row {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .album-art img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  
-  .song-info table {
-    width: 100%;
-  }
-  
-  .song-info td {
-    padding: 8px;
-  }
-  
-  .song-info td:first-child {
-    white-space: nowrap;
-    font-weight: bold;
-  }
-  
-  .music-player {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-color: #f0f0f0;
-    padding: 20px;
-  }
-  
-  .music-player h2 {
-    margin: 0;
-  }
-  
-  .music-player audio {
-    width: 100%;
-  }
-  
+  max-width: 800px; /* Set the maximum width of the container to 800px */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Styles for the song table */
+.song-table {
+  display: grid; /* Use grid layout for the song table */
+  grid-template-columns: auto auto; /* Set the grid columns to auto */
+  gap: 20px; /* Set the gap between grid items to 20px */
+}
+
+/* Styles for each song row */
+.song-row {
+  display: flex; /* Use flex layout for each song row */
+  align-items: center; /* Center align items vertically */
+  border-bottom: 1px solid #ccc; /* Add a bottom border with a color of #ccc */
+  padding-bottom: 20px; /* Add padding to the bottom of each song row */
+  margin-bottom: 20px; /* Add margin to the bottom of each song row */
+}
+
+/* Styles for the album art */
+.album-art img {
+  width: 100px; /* Set the width of the album art image to 100px */
+  height: 100px; /* Set the height of the album art image to 100px */
+  object-fit: cover; /* Scale the image to cover the container while maintaining aspect ratio */
+  border-radius: 4px; /* Add a border radius of 4px to the album art image */
+}
+
+/* Styles for the song information table */
+.song-info table {
+  width: 100%; /* Set the width of the table to 100% */
+}
+
+/* Styles for the table cells in the song information table */
+.song-info td {
+  padding: 8px; /* Add padding to the table cells */
+}
+
+/* Styles for the first table cell in the song information table */
+.song-info td:first-child {
+  white-space: nowrap; /* Prevent line breaks within the cell */
+  font-weight: bold; /* Set the font weight to bold for the first table cell */
+}
+
+/* Styles for the music player */
+.music-player {
+  position: fixed; /* Position the music player fixed to the viewport */
+  top: 0; /* Position the music player at the top */
+  left: 0; /* Position the music player at the left */
+  width: 100%; /* Set the width of the music player to 100% */
+  height: 100px; /* Set the height of the music player to 100px */
+  background-color: #f0f0f0; /* Set the background color of the music player to #f0f0f0 */
+  padding: 20px; /* Add padding to the music player */
+}
+
+/* Styles for the heading in the music player */
+.music-player h2 {
+  margin: 0; /* Remove margin from the heading */
+}
+
+/* Styles for the audio player in the music player */
+.music-player audio {
+  width: 100%; /* Set the width of the audio player to 100% */
+}

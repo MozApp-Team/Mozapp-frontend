@@ -1,21 +1,33 @@
+// Import React and useState from the 'react' module
 import React, { useState } from 'react';
+// Import the CSS file for styling
 import './SongList.css';
 
+// Define the SongList component
 const SongList = ({ metadata }) => {
-  const [selectedSong, setSelectedSong] = useState(null);
+  // Define a state variable to store the selected song
+  const [selectedSong, setSelectedSong] = useState(null); // useState variable returns selectedSong and setSelectedSong function that updates selectedSong
 
-  const handlePlayButtonClick = (song) => {
+  // Event handler for the play button click
+  const handlePlayButtonClick = (song) => { // handlePlayButtonClick is a variable that contains a function with parameter song that is passed in
+    // Set the selected song in the state
     setSelectedSong(song);
   };
 
+  // Render the component
   return (
     <div className="song-list-container">
+      {/* Heading for the song list */}
       <h1>Song List</h1>
       <div className="song-table">
+        {/* Iterate over the metadata array and render each song */}
         {metadata.map((song) => (
           <div key={song.id} className="song-row">
             <div className="album-art">
-              <button onClick={() => handlePlayButtonClick(song)}><img src={song.cover_image} alt={song.title} /></button>
+              {/* Play button for each song */}
+              <button onClick={() => handlePlayButtonClick(song)}>
+                <img src={song.cover_image} alt={song.title} />
+              </button>
             </div>
             <div className="song-info">
               <h3>{song.title}</h3>
@@ -47,9 +59,11 @@ const SongList = ({ metadata }) => {
           </div>
         ))}
       </div>
-      {selectedSong && (
+      {/* Render the music player if a song is selected, meaning selectedSong is true/exists*/}
+      {selectedSong && ( 
         <div className="music-player">
           <h2>Now Playing: {selectedSong.title}</h2>
+          {/* Audio player for the selected song */}
           <audio controls autoPlay src={`http://localhost:8081/music/${selectedSong.album}/${selectedSong.title}.mp3`}></audio>
         </div>
       )}
@@ -57,4 +71,5 @@ const SongList = ({ metadata }) => {
   );
 };
 
+// Export the SongList component as the default export
 export default SongList;
