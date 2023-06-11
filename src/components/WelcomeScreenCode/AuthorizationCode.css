@@ -1,0 +1,46 @@
+.authorization-form 
+{
+  text-align: center; /* Align the content of the form to the center */
+}
+
+.authorization-form h1 
+{
+  font-size: 24px; /* Set the font size of the heading to 24 pixels */
+  margin-bottom: 20px; /* Add a margin at the bottom of the heading */
+}
+
+.authorization-form form 
+{
+  display: flex; /* Use flexbox for the form */
+  flex-direction: column; /* Set the direction of flex items to column */
+  align-items: center; /* Align the form items to the center horizontally */
+}
+
+.authorization-form label 
+{
+  margin-bottom: 10px; /* Add a margin at the bottom of each label */
+}
+
+.authorization-form input[type="text"] 
+{
+  width: 250px; /* Set the width of the text input field to 250 pixels */
+  padding: 8px; /* Add padding around the text input */
+  border: 1px solid #ccc; /* Add a 1-pixel solid border with color #ccc */
+  border-radius: 5px; /* Apply a 5-pixel border radius to the input field */
+  font-size: 14px; /* Set the font size of the input text to 14 pixels */
+}
+
+.authorization-form button[type="submit"] 
+{
+  background-color: #4CAF50; /* Set the background color of the button to #4CAF50 */
+  color: white; /* Set the text color of the button to white */
+  border: none; /* Remove the border of the button */
+  padding: 10px 20px; /* Add padding to the button */
+  text-align: center; /* Align the text of the button to the center */
+  text-decoration: none; /* Remove any text decoration */
+  display: inline-block; /* Display the button as an inline block element */
+  font-size: 14px; /* Set the font size of the button text to 14 pixels */
+  border-radius: 5px; /* Apply a 5-pixel border radius to the button */
+  cursor: pointer; /* Set the cursor to a pointer when hovering over the button */
+  margin-top: 10px; /* Add a margin at the top of the button */
+}
