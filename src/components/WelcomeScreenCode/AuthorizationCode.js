@@ -6,6 +6,7 @@ const AuthorizationCode = ({ onSubmit }) =>
 {
   // Define state variable using useState hook
   const [code, setCode] = useState('');
+  // eslint-disable-next-line
   const [skipSetup, setSkipSetup] = useState('');
 
   // Handle form submission

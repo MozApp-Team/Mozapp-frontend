@@ -1,16 +1,12 @@
-/* Styles for the container of the song list */
-.song-list-container 
-{
+.song-list-container {
   margin: 0 auto; /* Center the container horizontally */
 }
 
-/* Styles for the song table */
-.song-table 
-{
-  transform: translateY(1240vh);
-  display: grid; /* Use grid layout for the song table */
-  grid-template-columns: auto auto; /* Set the grid columns to auto */
-  gap: 20px; /* Set the gap between grid items to 20px */
+/* Styles for the scrollable song table container */
+.song-table-container {
+  overflow-y: auto; /* Add vertical scrolling when the content overflows */
+  max-height: 60vh; 
+  margin-bottom: 20px; /* Add margin to the bottom of the container */
 }
 
 /* Styles for each song row */

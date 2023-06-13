@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import './SongList.css';
+import ResetButton from "./ResetButton"
 
 const SongList = ({ metadata }) => 
 {
@@ -36,10 +37,19 @@ const SongList = ({ metadata }) =>
     }
   };
 
+  const handleEnded = () =>
+  {
+    const randomIndex = Math.floor(Math.random() * metadata.length);
+    const randomSong = metadata[randomIndex];
+    setSelectedSong(randomSong);
+    setSongsPlayed((prevSongs) => [...prevSongs, randomSong]);
+    setCurrentIndex((prevIndex) => prevIndex + 1);
+  }
+
   return (
     <div className="song-list-container">
       <h1>Song List</h1>
-      <div className="song-table">
+      <div className="song-table-container">
         {metadata.map((song) => 
         (
           <div key={song.id} className="song-row">
@@ -88,8 +98,7 @@ const SongList = ({ metadata }) =>
           </div>
         ))}
       </div>
-      {selectedSong && 
-      (
+      {selectedSong && (
         <div className="music-player">
           <h2>Now Playing: {selectedSong.title}</h2>
           <AudioPlayer
@@ -98,9 +107,13 @@ const SongList = ({ metadata }) =>
             showSkipControls={true}
             onClickPrevious={onClickPrevious}
             onClickNext={onClickNext}
+            onEnded={handleEnded}
           />
         </div>
       )}
+      <div className="reset-button-container">
+        <ResetButton />
+      </div>
     </div>
   );
 };
